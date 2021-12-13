@@ -26,3 +26,12 @@ const connectDB = async () => {
 connectDB();
 
 app.use(cors());
+
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+
+const newRoutes = require('./routes/api/ladies.js');
+app.use('/api/ladies', newRoutes)
+
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
