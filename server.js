@@ -12,8 +12,7 @@ const connectDB = async () => {
             url,
             {
                 useNewUrlParser: true,
-                useUnifiedTopology: true,
-                useFindAndModify: false
+                useUnifiedTopology: true
             }
         );
         console.log("MongoDB is connected...")
@@ -30,8 +29,11 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-const newRoutes = require('./routes/api/ladies.js');
-app.use('/api/ladies', newRoutes)
+const ladyRoutes = require('./routes/api/ladies.js');
+const resourceRoutes = require('./routes/api/resources.js')
+app.use('/api/ladies', ladyRoutes)
+app.use('/api/resources', resourceRoutes)
+
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
