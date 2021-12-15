@@ -38,16 +38,8 @@ const resourceRoutes = require('./routes/api/resources.js')
 app.use('/api/ladies', ladyRoutes)
 app.use('/api/resources', resourceRoutes)
 
-//image storage//
-const multer = require('multer');
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads')
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-});
+
+
 
 //port//
 const port = process.env.PORT || 8000;
