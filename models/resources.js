@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const ResourcesSchema = new mongoose.Schema({
-    name: {
+    subjectTaught: {
         type: String,
         required: true
     },
-    website: {
+    bookOrWebsite: {
+        type: String,
+        required: true
+    },
+    courseName: {
         type: String,
         required: true
     },
