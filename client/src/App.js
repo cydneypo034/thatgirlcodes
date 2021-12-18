@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter as Router,Routes, Route } from 'react-router-dom';
-import ShowHome from './components/Home.js';
+import ShowHome from './components/home/Home.js';
 import ShowLadies from './components/AllLadies.js';
 import OneLady from './components/OneLady.js';
 import CreateLadies from './components/AddNewLady.js';
@@ -16,7 +16,7 @@ class App extends React.Component{
      return (
        <div>
          <nav className="nav-bar">
-           
+
          </nav>
        <Router>
           <Routes>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import WomenLaughing from '../components/project-images/womenlaughing.jpg'
-import WomanOnLaptop from '../components/project-images/womanonlaptop.jpg';
-import '../App.css';
+import WomenLaughing from '../project-images/womenlaughing.jpg'
+import WomanOnLaptop from '../project-images/womanonlaptop.jpg';
+import '../home/Home.css';
 
 export default class ShowHome extends Component {
     render() {
