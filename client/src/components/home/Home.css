@@ -21,3 +21,28 @@
     padding: 10px;
     border: 1px solid white;
   }
+
+.over-image-text-1{
+    position: absolute;
+    top: 48%;
+    left: 25%;
+    color: white;
+    background-color: #282828;
+    width: 250px;
+    height: 110px;
+    font-size: 40px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.over-image-text-2{
+    position: absolute;
+    top: 48%;
+    left: 59%;
+    color: white;
+    background-color: #282828;
+    width: 250px;
+    height: 110px;
+    font-size: 40px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
