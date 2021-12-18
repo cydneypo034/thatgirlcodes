@@ -1,13 +1,23 @@
+
 .home-main-text {
     text-align: center;
+    color: white;
   }
+
+.home-pg-text {
+    color: white;
+}
   
-  .women-laughing-image{
-    width: 40%;
-  }
-  
-  .woman-laptop-image {
+.women-laughing-image{
     width: 40%;
     height: 390px;
+    padding: 10px;
+    border: 1px solid white;
+  }
   
+.woman-laptop-image {
+    width: 40%;
+    height: 390px;
+    padding: 10px;
+    border: 1px solid white;
   }

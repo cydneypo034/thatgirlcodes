@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import ShowHome from './components/home/Home.js';
+import NavigateBar from './components/navbar/navbar';
 import ShowLadies from './components/AllLadies.js';
 import OneLady from './components/OneLady.js';
 import CreateLadies from './components/AddNewLady.js';
@@ -15,10 +16,9 @@ class App extends React.Component{
   render() {
      return (
        <div>
-         <nav className="nav-bar">
+       <Router>         
+         <NavigateBar />
 
-         </nav>
-       <Router>
           <Routes>
             <Route path="/" element={<ShowHome />} />
             <Route path='/ladies' element={<ShowLadies />}/>
