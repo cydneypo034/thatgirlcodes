@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../edit-resource/EditResource.css';
 
 export default class EditResources extends Component {
     render() {

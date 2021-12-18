@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../one-resource/OneResource.css';
 
 export default class OneResource extends Component {
     render() {

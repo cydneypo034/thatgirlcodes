@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../add-lady/AddNewLady.css';
 
 export default class CreateLadies extends Component {
     render() {

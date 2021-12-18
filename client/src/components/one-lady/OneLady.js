@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../one-lady/OneLady.css';
 
 export default class OneLady extends Component {
     render() {
