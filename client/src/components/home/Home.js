@@ -14,9 +14,9 @@ export default class ShowHome extends Component {
                 </p>
 
                 <div className='home-link-choices'>
-                    <h6 className="over-image-text-1">View Our Community</h6>
+                    <a href="/ladies"><h6 className="over-image-text-1">View Our Community</h6></a>
                     <img src={WomenLaughing} alt='black-women-laughing' className="women-laughing-image"/>
-                    <h6 className="over-image-text-2">View Our Resources</h6>
+                    <a href="/resources"><h6 className="over-image-text-2">View Our Resources</h6></a>
                     <img src={WomanOnLaptop} alt="black-woman-on-laptop" className='woman-laptop-image' />
                 </div>
             </div>

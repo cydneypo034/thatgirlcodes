@@ -3,14 +3,14 @@ import React from 'react';
 import {BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import ShowHome from './components/home/Home.js';
 import NavigateBar from './components/navbar/navbar';
-import ShowLadies from './components/AllLadies.js';
-import OneLady from './components/OneLady.js';
-import CreateLadies from './components/AddNewLady.js';
-import EditLadies from './components/EditLady.js';
-import ShowResources from './components/AllResources.js';
-import OneResource from './components/OneResource.js';
-import CreateResources from './components/AddResource.js';
-import EditResources from './components/EditResource.js';
+import ShowLadies from './components/community/AllLadies.js';
+import OneLady from './components/one-lady/OneLady.js';
+import CreateLadies from './components/add-lady/AddNewLady.js';
+import EditLadies from './components/edit-lady/EditLady.js';
+import ShowResources from './components/resources/AllResources.js';
+import OneResource from './components/one-resource/OneResource.js';
+import CreateResources from './components/add-resource/AddResource.js';
+import EditResources from './components/edit-resource/EditResource.js';
 
 class App extends React.Component{
   render() {
