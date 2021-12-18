@@ -14,6 +14,10 @@ import EditResources from './components/EditResource.js';
 class App extends React.Component{
   render() {
      return (
+       <div>
+         <nav className="nav-bar">
+           
+         </nav>
        <Router>
           <Routes>
             <Route path="/" element={<ShowHome />} />
@@ -27,7 +31,8 @@ class App extends React.Component{
             <Route path="edit-resources" element={<EditResources />}/> 
           </Routes>  
        </Router>
-        
+        </div>
+
       );
   }
 }
