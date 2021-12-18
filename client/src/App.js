@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import {BrowserRouter, BrowserRouter as Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import ShowHome from './components/Home.js';
 import ShowLadies from './components/AllLadies.js';
 import OneLady from './components/OneLady.js';
@@ -14,8 +14,7 @@ import EditResources from './components/EditResource.js';
 class App extends React.Component{
   render() {
      return (
-        <div>
-          <BrowserRouter>
+       <Router>
           <Routes>
             <Route path="/" element={<ShowHome />} />
             <Route path='/ladies' element={<ShowLadies />}/>
@@ -26,10 +25,9 @@ class App extends React.Component{
             <Route path="/one-resource/:id" element={<OneResource />}/>
             <Route path="/create-resources" element={<CreateResources />}/>
             <Route path="edit-resources" element={<EditResources />}/> 
-          </Routes>
-          </BrowserRouter>
-          
-        </div>
+          </Routes>  
+       </Router>
+        
       );
   }
 }
