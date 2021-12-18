@@ -20,12 +20,13 @@
     height: 390px;
     padding: 10px;
     border: 1px solid white;
+    
   }
 
 .over-image-text-1{
     position: absolute;
     top: 48%;
-    left: 25%;
+    left: 33%;
     color: white;
     background-color: #282828;
     width: 250px;
@@ -37,7 +38,7 @@
 .over-image-text-2{
     position: absolute;
     top: 48%;
-    left: 59%;
+    left: 67%;
     color: white;
     background-color: #282828;
     width: 250px;
@@ -45,4 +46,8 @@
     font-size: 40px;
     text-align: center;
     transform: translate(-50%, -50%);
+}
+
+.home-link-choices {
+    text-align: center;
 }
