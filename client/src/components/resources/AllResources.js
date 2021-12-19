@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../resources/AllResources.css';
+import {Button} from 'react-bootstrap'
 
 export default class ShowResources extends Component {
 
@@ -14,7 +15,7 @@ export default class ShowResources extends Component {
         fetch('/resources')
             .then(response => response.json())
             .then(data => {
-                
+
             })
     }
 
@@ -28,6 +29,11 @@ export default class ShowResources extends Component {
                 we all know and love and others that may be new.
                 </p>
                 
+                <div className='buttons-resources'>
+                    <a href="/" className=''><Button variant="outline-light">Home</Button></a>
+                    <a href="/create-ladies" className=''><Button variant="outline-light">Add Your Favorite Resource</Button></a>
+                </div>
+              
 
             </div>
         )
