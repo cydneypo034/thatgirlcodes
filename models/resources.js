@@ -9,11 +9,11 @@ const ResourcesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    courseName: {
+    bookOrSubjectTitle: {
         type: String,
         required: true
     },
-    review: {
+    reviewAndRating: {
         type: String,
         required: true
     },
