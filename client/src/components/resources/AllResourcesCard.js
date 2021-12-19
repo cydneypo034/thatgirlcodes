@@ -10,7 +10,8 @@ const ResourceCard = (props) => {
         <div className="container">
             <div className="col">
             <Card style={{ width: '18rem', backgroundColor: '#282828', 
-            boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)"}}>
+            boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
+            border: "1px solid white"}}>
             <Card.Body>
                 <Card.Title>
                     <Link to={`/one-resource/${resource._id}`} 
