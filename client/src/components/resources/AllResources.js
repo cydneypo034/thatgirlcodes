@@ -30,8 +30,8 @@ export default class ShowResources extends Component {
                 </p>
                 
                 <div className='buttons-resources'>
-                    <a href="/" className=''><Button variant="outline-light">Home</Button></a>
-                    <a href="/create-ladies" className=''><Button variant="outline-light">Add Your Favorite Resource</Button></a>
+                    <a href="/" className='home-resource-button'><Button variant="outline-light">Home</Button></a> {' '}
+                    <a href="/create-ladies" className='add-resource-button'><Button variant="outline-light">Add Your Favorite Resource</Button></a>
                 </div>
               
 

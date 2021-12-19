@@ -28,7 +28,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Resources.findByIdAndDelete()
+    Resources.findByIdAndRemove(req.params.id, req.body)
     .then(resource => res.json({ msg: 'Resource Deleted!'}))
     .catch(err => res.status(404).json({ error: 'Nothing to Delete'}));
 });
