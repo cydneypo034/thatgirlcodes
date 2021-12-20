@@ -4,30 +4,28 @@ import '../one-resource/OneResource.css';
 
 class OneResource extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
+       
         this.state = {
             resource: {}
-        };
+        }; 
     }
+    
 
     componentDidMount(){
         if(this.props.match && this.props.match.params.id) {
             this.fetchOneResource();
-            console.log(this.props.match && this.props.match.params.id)
         } else {
             console.log("component can not mount")
         }
     }
 
     fetchOneResource = () => {
-        const getID = this.props.match.params.id
-        fetch(`http://localhost:8000/api/resources/${getID}`
-            )
+        fetch(`http://localhost:8000/api/resources/${this.props.match.params.id}`)
         .then(response => response.json())
         .then(data => {
             this.setState({
-                isLoaded: true,
                 resource: data
             })
             console.log("here is the data"+ data)
@@ -37,8 +35,7 @@ class OneResource extends React.Component {
     }
 
     render() {
-        const resource = this.state.resource;
-        console.log(resource)
+
         let OneResource = 
             <div className="container">
                 <Card style={{ width: '48rem', height: '28rem', backgroundColor: '#282828', 
@@ -46,11 +43,11 @@ class OneResource extends React.Component {
                 border: "1px solid white"}}>
                 <Card.Body>
                 <Card.Title style={{color: 'white', fontSize: '30px'}}>
-                    Subject Taught: {resource.subjectTaught}
+                    Subject Taught: {this.state.resource.subjectTaught}
                     </Card.Title>
-                <Card.Text style={{color: 'white'}}>Book or Website: {resource.bookOrWebsite}</Card.Text>
-                <Card.Text style={{color: 'white'}}>Book or Subject Title: {resource.bookOrSubjectTitle}</Card.Text>
-                <Card.Text style={{color: 'white'}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
+                <Card.Text style={{color: 'white'}}>Book or Website: {this.state.resource.bookOrWebsite}</Card.Text>
+                <Card.Text style={{color: 'white'}}>Book or Subject Title: {this.state.resource.bookOrSubjectTitle}</Card.Text>
+                <Card.Text style={{color: 'white'}}>Reviews and Ratings: {this.state.resource.reviewAndRating}</Card.Text>
                 <a href="/resources" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Resource List</Button>
                         </a> 
