@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './AllResources.css';
 import {Button} from 'react-bootstrap';
 import ResourceCard from './AllResourcesCard.js';
 
-export default class ShowResources extends Component {
+class ShowResources extends React.Component {
 
     constructor(props) {
         super(props);
@@ -58,3 +58,5 @@ export default class ShowResources extends Component {
         )
     }
 }
+
+export default ShowResources;

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 import '../one-resource/OneResource.css';
 
-export default class OneResource extends Component {
+class OneResource extends React.Component {
 
     constructor(props){
         super(props);
@@ -19,14 +19,14 @@ export default class OneResource extends Component {
     }
 
     fetchOneResource = () => {
-        const id = this.props.match.params.id
-        fetch(`http://localhost:8000/api/resources/${id}`)
+        const thisId = this.props.match.params.id
+        fetch(`http://localhost:8000/api/resources/${thisId}`)
         .then(response => response.json())
         .then(data => {
             this.setState({resource: data})
             console.log(data)
         }).catch(error => {
-            console.log("error in displaying this resource")
+            console.log("error in displaying this resource"+ error)
         });
     }
 
@@ -46,10 +46,12 @@ export default class OneResource extends Component {
                 <Card.Text style={{color: 'white'}}>Book or Subject Title: {resource.bookOrSubjectTitle}</Card.Text>
                 <Card.Text style={{color: 'white'}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
                 <a href="/resources" className='home-resource-button'>
-                        <Button variant="outline-light">Go Back to Resource List</Button></a> 
+                        <Button variant="outline-light">Go Back to Resource List</Button>
+                        </a> 
                 </Card.Body>
                 </Card>
             </div>
+        
         return (
             <div>
                 <h1 className='home-main-text'>Here's a Resource We Love</h1>
@@ -58,3 +60,5 @@ export default class OneResource extends Component {
         )
     }
 }
+
+export default OneResource;
