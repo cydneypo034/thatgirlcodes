@@ -49,7 +49,7 @@ class ShowResources extends React.Component {
                 <div className='buttons-resources'>
                     <a href="/" className='home-resource-button'>
                         <Button variant="outline-light">Home</Button></a> {' '}
-                    <a href="/create-ladies" className='add-resource-button'>
+                    <a href="/create-resources" className='add-resource-button'>
                         <Button variant="outline-light">Add Your Favorite Resource</Button></a>
                 </div>
               

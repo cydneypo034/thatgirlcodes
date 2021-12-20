@@ -6,7 +6,6 @@ class OneResource extends React.Component {
 
     constructor(props){
         super(props);
-
         this.state = {
             resource: {}
         };
@@ -15,16 +14,23 @@ class OneResource extends React.Component {
     componentDidMount(){
         if(this.props.match && this.props.match.params.id) {
             this.fetchOneResource();
+            console.log(this.props.match && this.props.match.params.id)
+        } else {
+            console.log("component can not mount")
         }
     }
 
     fetchOneResource = () => {
-        const thisId = this.props.match.params.id
-        fetch(`http://localhost:8000/api/resources/${thisId}`)
+        const getID = this.props.match.params.id
+        fetch(`http://localhost:8000/api/resources/${getID}`
+            )
         .then(response => response.json())
         .then(data => {
-            this.setState({resource: data})
-            console.log(data)
+            this.setState({
+                isLoaded: true,
+                resource: data
+            })
+            console.log("here is the data"+ data)
         }).catch(error => {
             console.log("error in displaying this resource"+ error)
         });
@@ -32,10 +38,10 @@ class OneResource extends React.Component {
 
     render() {
         const resource = this.state.resource;
-
+        console.log(resource)
         let OneResource = 
             <div className="container">
-                <Card style={{ width: '38rem', backgroundColor: '#282828', 
+                <Card style={{ width: '48rem', height: '28rem', backgroundColor: '#282828', 
                 boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
                 border: "1px solid white"}}>
                 <Card.Body>
@@ -55,7 +61,7 @@ class OneResource extends React.Component {
         return (
             <div>
                 <h1 className='home-main-text'>Here's a Resource We Love</h1>
-                <div>{OneResource}</div>
+                <div className='card-wrapper'>{OneResource}</div>
             </div>
         )
     }
