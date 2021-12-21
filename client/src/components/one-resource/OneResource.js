@@ -1,37 +1,31 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 import '../one-resource/OneResource.css';
+import axios from 'axios';
 
 class OneResource extends React.Component {
 
     constructor(props) {
         super(props);
-       
         this.state = {
             resource: {}
         }; 
     }
-    
 
     componentDidMount(){
-        if(this.props.match && this.props.match.params.id) {
-            this.fetchOneResource();
-        } else {
-            console.log("component can not mount")
-        }
+        this.fetchOneResource();
     }
 
     fetchOneResource = () => {
-        fetch(`http://localhost:8000/api/resources/${this.props.match.params.id}`)
-        .then(response => response.json())
-        .then(data => {
+        axios.get('http://localhost:8000/api/resources/'+ this.props)
+        .then(res => {
             this.setState({
-                resource: data
+                resources: res.data
             })
-            console.log("here is the data"+ data)
-        }).catch(error => {
-            console.log("error in displaying this resource"+ error)
-        });
+        })
+        .catch(err => {
+            console.log("error in displaying resource")
+        })
     }
 
     render() {

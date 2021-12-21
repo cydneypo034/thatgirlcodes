@@ -2,6 +2,7 @@ import React from 'react';
 import './AllResources.css';
 import {Button} from 'react-bootstrap';
 import ResourceCard from './AllResourcesCard.js';
+import axios from 'axios';
 
 class ShowResources extends React.Component {
 
@@ -17,13 +18,11 @@ class ShowResources extends React.Component {
     }
 
     fetchResources = () => {
-        fetch('http://localhost:8000/api/resources')
-            .then(response => response.json())
-            .then(data => {
+        axios('http://localhost:8000/api/resources')
+            .then(res => {
                 this.setState({
                     isLoaded: true,
-                    resources: data })
-                console.log(data)
+                    resources: res.data })
             }).catch(error => {
                 console.log("error in displaying resources")
             });
