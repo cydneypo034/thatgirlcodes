@@ -1,6 +1,6 @@
 import React from 'react';
 import './AllResources.css';
-import {Button, Row, Col} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import ResourceCard from './AllResourcesCard.js';
 import axios from 'axios';
 
@@ -37,6 +37,7 @@ class ShowResources extends React.Component {
         );
 
         return (
+            <div>
             <div className='container'>
                 <h1 className='resources-main-text'>Our Resources</h1>
                 <p className="resources-pg-text">
@@ -51,12 +52,12 @@ class ShowResources extends React.Component {
                     <a href="/create-resources" className='add-resource-button'>
                         <Button variant="outline-light">Add Your Favorite Resource</Button></a>
                 </div>
-              
-                  <Row>
-                        <div>{resourceList}</div>
-                    </Row> 
-              
+              </div>
+              <div className='container'>
+                <div className="card-wrapper">{resourceList}</div>
+              </div>
             </div>
+            
         )
     }
 }

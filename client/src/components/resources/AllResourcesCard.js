@@ -7,8 +7,8 @@ const ResourceCard = (props) => {
     const resource = props.resource;
 
     return (
-        <div className="container">
-            <div className="row">
+        <div className="card-resource">
+            <div className="col">
             <Card style={{ width: '18rem', backgroundColor: '#282828', 
             boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
             border: "1px solid white"}} className="card">
