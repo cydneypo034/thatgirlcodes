@@ -8,7 +8,8 @@ class OneResource extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            resource: {}
+            resource: {},
+            getId: this.props.match.params.id
         }; 
     }
 
@@ -17,11 +18,13 @@ class OneResource extends React.Component {
     }
 
     fetchOneResource = () => {
-        axios.get('http://localhost:8000/api/resources/'+ this.props)
-        .then(res => {
+        let resourceId = this.state.getId;
+        axios.get("http://localhost:8000/api/resources/" + resourceId)
+        .then(data => {
             this.setState({
-                resources: res.data
+                resource: data
             })
+            console.log(data)
         })
         .catch(err => {
             console.log("error in displaying resource")
@@ -30,6 +33,8 @@ class OneResource extends React.Component {
 
     render() {
 
+        const resource = this.state.resource;
+
         let OneResource = 
             <div className="container">
                 <Card style={{ width: '48rem', height: '28rem', backgroundColor: '#282828', 
@@ -37,11 +42,11 @@ class OneResource extends React.Component {
                 border: "1px solid white"}}>
                 <Card.Body>
                 <Card.Title style={{color: 'white', fontSize: '30px'}}>
-                    Subject Taught: {this.state.resource.subjectTaught}
+                    Subject Taught: {resource.subjectTaught}
                     </Card.Title>
-                <Card.Text style={{color: 'white'}}>Book or Website: {this.state.resource.bookOrWebsite}</Card.Text>
-                <Card.Text style={{color: 'white'}}>Book or Subject Title: {this.state.resource.bookOrSubjectTitle}</Card.Text>
-                <Card.Text style={{color: 'white'}}>Reviews and Ratings: {this.state.resource.reviewAndRating}</Card.Text>
+                <Card.Text style={{color: 'white'}}>Book or Website: {resource.bookOrWebsite}</Card.Text>
+                <Card.Text style={{color: 'white'}}>Book or Subject Title: {resource.bookOrSubjectTitle}</Card.Text>
+                <Card.Text style={{color: 'white'}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
                 <a href="/resources" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Resource List</Button>
                         </a> 

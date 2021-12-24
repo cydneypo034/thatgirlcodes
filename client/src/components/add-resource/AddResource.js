@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Button, Form} from 'react-bootstrap';
+import history from 'history';
 import '../add-resource/AddResource.css';
 
 class CreateResources extends Component {
@@ -34,13 +35,14 @@ class CreateResources extends Component {
         axios
         .post('http://localhost:8000/api/resources/', data)
         .then(res => {
+            History.push("/resources")
+
             this.setState({
                 subjectTaught: '',
                 bookOrWebsite: '',
                 bookOrSubjectTitle: '',
                 reviewAndRating: '' 
             })
-            this.context.history.push("/resources")
         })
         .catch(err => {
             console.log("Error in Creating Resource!")
@@ -122,4 +124,4 @@ class CreateResources extends Component {
     }
 }
 
-export default CreateResources;
+export default CreateResources ;
