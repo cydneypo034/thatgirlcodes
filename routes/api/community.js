@@ -48,7 +48,7 @@ router.post('/', upload.single('image'), (req, res, next) => {
     const obj = {
         photo: {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-            type: 'image/png'
+            type: 'image/jpg'
         }
     }
     Users.create(obj, (err, item) => {
