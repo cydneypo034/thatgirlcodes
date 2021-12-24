@@ -19,7 +19,7 @@ class App extends React.Component{
             <Route path="/resources" component={ShowResources}/>
             <Route path="/one-resource/:id" component={OneResource}/>
             <Route path="/create-resources" component={CreateResources}/>
-            <Route path="edit-resources" component={EditResources}/> 
+            <Route path="/edit-resources/:id" component={EditResources}/> 
        </Router>
         </div>
 

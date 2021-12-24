@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import '../one-resource/OneResource.css';
 import axios from 'axios';
 
@@ -29,13 +30,24 @@ class OneResource extends React.Component {
         })
     }
 
+    onDeleteResource(id) {
+        axios.delete("http://localhost:8000/api/resources/"+id)
+        .then(res=> {
+            this.props.history.push('/resources');
+        })
+        .catch(err => {
+            console.log("error deleting resource")
+        })
+    }
+
     render() {
 
         const resource = this.state.resource;
+        const id = this.props.match.params.id;
 
         let OneResource = 
             <div className="container">
-                <Card style={{ width: '48rem', height: '28rem', backgroundColor: '#282828', 
+                <Card style={{ width: '48rem', height: '18rem', backgroundColor: '#282828', 
                 boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
                 border: "1px solid white"}}>
                 <Card.Body>
@@ -45,9 +57,14 @@ class OneResource extends React.Component {
                 <Card.Text style={{color: 'white'}}>Book or Website: {resource.bookOrWebsite}</Card.Text>
                 <Card.Text style={{color: 'white'}}>Book or Subject Title: {resource.bookOrSubjectTitle}</Card.Text>
                 <Card.Text style={{color: 'white'}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
-                <a href="/resources" className='home-resource-button'>
+                        <a href="/resources" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Resource List</Button>
                         </a> 
+                        <Link to={`/edit-resources/${id}`} className='home-resource-button'>
+                        <Button variant="outline-light">Edit This Resource</Button>
+                        </Link> 
+                        <Button variant="outline-light" className='home-resource-button' 
+                        onClick={this.onDeleteResource.bind(this, id)} >Delete This Resource</Button>
                 </Card.Body>
                 </Card>
             </div>
