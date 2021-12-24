@@ -13,10 +13,6 @@ class OneResource extends React.Component {
         }; 
     }
 
-    componentDidMount(){
-        this.fetchOneResource();
-    }
-
     fetchOneResource = () => {
         const id = this.props.match.params.id;
         axios.get(`http://localhost:8000/api/resources/${id}`)
@@ -28,6 +24,10 @@ class OneResource extends React.Component {
         .catch(err => {
             console.log("error in displaying resource")
         })
+    }
+
+    componentDidMount(){
+        this.fetchOneResource();
     }
 
     onDeleteResource(id) {
@@ -47,9 +47,9 @@ class OneResource extends React.Component {
 
         let OneResource = 
             <div className="container">
-                <Card style={{ width: '48rem', height: '18rem', backgroundColor: '#282828', 
+                <Card className="text-center" style={{ backgroundColor: '#282828', 
                 boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
-                border: "1px solid white"}}>
+                border: "1px solid white", textAlign: "center"}}>
                 <Card.Body>
                 <Card.Title style={{color: 'white', fontSize: '30px'}}>
                     Subject Taught: {resource.subjectTaught}
@@ -59,10 +59,10 @@ class OneResource extends React.Component {
                 <Card.Text style={{color: 'white'}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
                         <a href="/resources" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Resource List</Button>
-                        </a> 
+                        </a> { ' ' }
                         <Link to={`/edit-resources/${id}`} className='home-resource-button'>
                         <Button variant="outline-light">Edit This Resource</Button>
-                        </Link> 
+                        </Link> { ' ' }
                         <Button variant="outline-light" className='home-resource-button' 
                         onClick={this.onDeleteResource.bind(this, id)} >Delete This Resource</Button>
                 </Card.Body>
@@ -72,7 +72,10 @@ class OneResource extends React.Component {
         return (
             <div>
                 <h1 className='home-main-text'>Here's a Resource We Love</h1>
+
+                <div className='container'>
                 <div className='card-wrapper'>{OneResource}</div>
+                </div>
             </div>
         )
     }
