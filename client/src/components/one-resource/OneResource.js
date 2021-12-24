@@ -8,8 +8,7 @@ class OneResource extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            resource: {},
-            getId: this.props.match.params.id
+            resource: {}
         }; 
     }
 
@@ -18,13 +17,12 @@ class OneResource extends React.Component {
     }
 
     fetchOneResource = () => {
-        let resourceId = this.state.getId;
-        axios.get("http://localhost:8000/api/resources/" + resourceId)
-        .then(data => {
+        const id = this.props.match.params.id;
+        axios.get(`http://localhost:8000/api/resources/${id}`)
+        .then(res => {
+            console.log("print resource" + res.data)
             this.setState({
-                resource: data
-            })
-            console.log(data)
+                resource: res.data})
         })
         .catch(err => {
             console.log("error in displaying resource")

@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import {BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
 import ShowHome from './components/home/Home.js';
 import NavigateBar from './components/navbar/navbar';
 import ShowResources from './components/resources/AllResources.js';
@@ -15,13 +15,11 @@ class App extends React.Component{
        <Router>         
          <NavigateBar />
 
-          <Routes>
-            <Route path="/" element={<ShowHome />} />
-            <Route path="/resources" element={<ShowResources />}/>
-            <Route path="/one-resource/:id" element={<OneResource />}/>
-            <Route path="/create-resources" element={<CreateResources />}/>
-            <Route path="edit-resources" element={<EditResources />}/> 
-          </Routes>  
+            <Route exact path="/" component={ShowHome} />
+            <Route path="/resources" component={ShowResources}/>
+            <Route path="/one-resource/:id" component={OneResource}/>
+            <Route path="/create-resources" component={CreateResources}/>
+            <Route path="edit-resources" component={EditResources}/> 
        </Router>
         </div>
 
