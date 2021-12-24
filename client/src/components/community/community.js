@@ -1,7 +1,32 @@
-import React, {Component} from 'react';
-import './AllLadies.css';
+import React from 'react';
+import axios from 'axios';
+import './community.css';
 
-export default class ShowLadies extends Component {
+class ShowCommunity extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            community: []
+        }
+    }
+        componentDidMount() {
+            this.fetchCommunity();
+        }
+
+        fetchCommunity = () => {
+            axios('http://localhost:8000/api/community')
+            .then(res => {
+                this.setState({
+                    isLoaded: true,
+                    community: res.data
+                }).catch(error => {
+                    console.log("error displaying community")
+                });
+            })
+        }
+
     render() {
         return (
             <div className='container'>
@@ -16,3 +41,5 @@ export default class ShowLadies extends Component {
         )
     }
 }
+
+export default ShowCommunity;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './EditLady.css';
+import './edit-user.css';
 
 export default class EditLadies extends Component {
     render() {

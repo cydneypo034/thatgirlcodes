@@ -33,9 +33,9 @@ app.use(express.json());
 
 //origin headers//
 //routes//
-const ladyRoutes = require('./routes/api/ladies.js');
+const communityRoutes = require('./routes/api/community.js');
 const resourceRoutes = require('./routes/api/resources.js')
-app.use('/api/ladies', ladyRoutes)
+app.use('/api/community', communityRoutes)
 app.use('/api/resources', resourceRoutes)
 
 
