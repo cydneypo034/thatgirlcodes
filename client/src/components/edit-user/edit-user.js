@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../add-lady/AddNewLady.css';
+import './EditLady.css';
 
-export default class CreateLadies extends Component {
+export default class EditLadies extends Component {
     render() {
         return (
             <div>

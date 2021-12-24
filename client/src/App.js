@@ -7,6 +7,10 @@ import ShowResources from './components/resources/AllResources.js';
 import OneResource from './components/one-resource/OneResource.js';
 import CreateResources from './components/add-resource/AddResource.js';
 import EditResources from './components/edit-resource/EditResource.js';
+import ShowUsers from './components/community/community.js';
+import OneUser from './components/one-user/one-user.js';
+import CreateUser from './components/add-user/add-newuser.js';
+import EditUser from './components/edit-user/edit-user.js';
 
 class App extends React.Component{
   render() {
@@ -14,12 +18,15 @@ class App extends React.Component{
        <div>
        <Router>         
          <NavigateBar />
-
             <Route exact path="/" component={ShowHome} />
             <Route path="/resources" component={ShowResources}/>
             <Route path="/one-resource/:id" component={OneResource}/>
             <Route path="/create-resources" component={CreateResources}/>
             <Route path="/edit-resources/:id" component={EditResources}/> 
+            <Route path="/community" component={ShowUsers}/>
+            <Route path="/one-user/:id" component={OneUser}/>
+            <Route path="/create-new-user" component={CreateUser}/>
+            <Route path="/edit-user/:id" component={EditUser}/> 
        </Router>
         </div>
 

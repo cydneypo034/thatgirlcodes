@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Ladies = require('../../models/ladies.js');
+const Users = require('../../models/community.js');
 //image storage//
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -16,13 +16,13 @@ const upload = multer({ storage: storage });
 
 
 router.get('/', (req, res) => {
-    Ladies.find()
-    .then(ladies => res.json(ladies))
-    .catch(err => res.status(404).json({ noladies: 'They are not Available'}));
+    Users.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(404).json({ nousers: 'They are not Available'}));
 });
 
 router.get('/', (req, res) => {
-    Ladies.find({}, (err, items) => {
+    Users.find({}, (err, items) => {
         if(err) {
             console.log(err);
             res.status(500).send('An error has occured', err);
@@ -33,14 +33,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Ladies.findById(req.params.id)
-    .then(ladies => res.json(lady))
-    .catch(err => res.status(404).json({ nolady: 'She is not Available'}));
+    Users.findById(req.params.id)
+    .then(users => res.json(users))
+    .catch(err => res.status(404).json({ nousers: 'They are not Available'}));
 });
 
 router.post('/', (req, res) => {
-    Ladies.create(req.body)
-    .then(lady => res.json({ msg: 'Lady Added!'}))
+    Users.create(req.body)
+    .then(users => res.json({ msg: 'User Added!'}))
     .catch(err => res.status(404).json({ error: 'Unable to Add'}));
 });
 
@@ -51,7 +51,7 @@ router.post('/', upload.single('image'), (req, res, next) => {
             type: 'image/png'
         }
     }
-    Ladies.create(obj, (err, item) => {
+    Users.create(obj, (err, item) => {
         if(err) {
             console.log(err);
         }
@@ -64,14 +64,14 @@ router.post('/', upload.single('image'), (req, res, next) => {
 
 
 router.put('/:id', (req, res) => {
-    Ladies.findByIdAndUpdate(req.params.id, req.body)
-    .then(lady => res.json({msg: 'Lady updated!'}))
+    Users.findByIdAndUpdate(req.params.id, req.body)
+    .then(users => res.json({msg: 'User updated!'}))
     .catch(err => res.status(404).json({ error: 'Unable to Update'}));
 });
 
 router.delete('/:id', (req, res) => {
-    Ladies.findByIdAndDelete()
-    .then(lady => res.json({ msg: 'Lady Deleted!'}))
+    Users.findByIdAndDelete()
+    .then(users => res.json({ msg: 'User Deleted!'}))
     .catch(err => res.status(404).json({ error: 'Nothing to Delete'}));
 });
 
