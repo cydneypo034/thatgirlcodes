@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const Users = require('../../models/community.js');
+
 router.get('/', (req, res) => {
     Users.find()
     .then(users => res.json(users))
@@ -26,7 +28,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Users.findByIdAndDelete()
+    Users.findByIdAndRemove(req.params.id, req.body)
     .then(users => res.json({ msg: 'User Deleted!'}))
     .catch(err => res.status(404).json({ error: 'Nothing to Delete'}));
 });
