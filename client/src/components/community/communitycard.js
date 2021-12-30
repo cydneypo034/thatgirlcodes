@@ -13,7 +13,6 @@ const CommunityCard = (props) => {
             boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
             border: "1px solid white"}} className="card">
             <Card.Body>
-            <Card.Img variant="top" src={community.photo} />
                 <Card.Title>
                     <Link to={`/one-community/${community._id}`} 
                     style={{color: 'white', textDecoration: 'none'}}>

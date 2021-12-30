@@ -39,8 +39,6 @@ app.use('/api/community', communityRoutes)
 app.use('/api/resources', resourceRoutes)
 
 
-
-
 //port//
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

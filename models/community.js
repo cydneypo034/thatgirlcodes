@@ -16,10 +16,6 @@ const UsersSchema = new mongoose.Schema({
     currentCareer: {
         type: String,
         required: true
-    },
-    photo: {
-        data: Buffer,
-        type: String
     }
 });
 
