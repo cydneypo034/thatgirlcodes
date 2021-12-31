@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import axios from 'axios';
-import './add-newuser.css';
+import '../add-user/add-newuser.css';
 
 class CreateUser extends Component {
     constructor() {
@@ -13,6 +13,38 @@ class CreateUser extends Component {
             schoolAttended: '',
             currentCareer: ''
         }
+    }
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+
+        const data = {
+            name: this.state.name,
+            age: this.state.age,
+            schoolAttended: this.state.schoolAttended,
+            currentCareer: this.state.currentCareer
+        }
+
+        axios
+        .post('http://localhost:8000/api/community/', data)
+        .then(res => {
+            this.setState({
+                name: '',
+                age: '',
+                schoolAttended: '',
+                currentCareer: '' 
+            })
+            this.props.history.push('/community')
+        })
+        .catch(err => {
+            console.log("Error in Creating User!")
+        })
     }
 
     
@@ -51,7 +83,7 @@ class CreateUser extends Component {
                     onChange={this.onChange}
                      />
                     <Form.Text className="text-muted">
-                    If you don't feel comfortable putting your age, you can type "null".
+                    If you don't feel comfortable putting your age, you can type whatever number comes to mind.
                     </Form.Text>
                 </Form.Group>
 

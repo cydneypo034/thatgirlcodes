@@ -11,7 +11,7 @@ export default class NavigateBar extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                 <Nav>
-                <Nav.Link href="/ladies" className="nav-link">Community</Nav.Link>
+                <Nav.Link href="/community" className="nav-link">Community</Nav.Link>
                 <Nav.Link href="/resources" className="nav-link">Resources</Nav.Link>
                 <Nav.Link href="/contact" className="nav-link">Contact</Nav.Link>
                 </Nav>
