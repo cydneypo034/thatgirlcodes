@@ -10,12 +10,12 @@
     "app": "concurrently \"npm run backend\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-    
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^6.5.1",
+    "config": "^3.3.6",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
