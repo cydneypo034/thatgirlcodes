@@ -29,3 +29,17 @@
     margin: 1rem;
 }
 
+@media only screen and (min-width: 375px) 
+and (max-width: 812px) {
+    .community-main-text {
+        text-align: center;
+        font-size: 50px;
+        color: white;
+    }
+    
+    .community-pg-text {
+        text-align: center;
+        color: white;
+        font-size: 15px;
+    } 
+}

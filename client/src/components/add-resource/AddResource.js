@@ -58,7 +58,7 @@ class CreateResources extends Component {
                         <Button variant="outline-light">Home</Button></a> {' '}
                 </div>
 
-                <Form onSubmit={this.onSubmit} style={{}}>
+                <Form onSubmit={this.onSubmit}>
                 <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                     <Form.Label style={{color: "white"}}>Subject Taught</Form.Label>
                     <Form.Control type="text" 
