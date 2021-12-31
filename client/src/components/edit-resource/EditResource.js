@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Form, Button} from 'react-bootstrap';
-import axios from 'axios';
 import '../edit-resource/EditResource.css';
 
 class EditResources extends Component {
@@ -17,14 +16,16 @@ class EditResources extends Component {
 
     getResourceForEdit = () => {
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:8000/api/resources/${id}`)
-            .then(res => {
+        fetch(`/api/resources/${id}`)
+            .then(res => res.json)
+            .then(data => {
                 this.setState({
-                    subjectTaught: res.data.subjectTaught,
-                    bookOrWebsite: res.data.bookOrWebsite,
-                    bookOrSubjectTitle: res.data.bookOrSubjectTitle,
-                    reviewAndRating: res.data.reviewAndRating
+                    subjectTaught: data.subjectTaught,
+                    bookOrWebsite: data.bookOrWebsite,
+                    bookOrSubjectTitle: data.bookOrSubjectTitle,
+                    reviewAndRating: data.reviewAndRating
                 })
+                console.log(data);
             })
             .catch(err => {
                 console.log("error getting resource to edit")
@@ -53,10 +54,24 @@ class EditResources extends Component {
 
         const id = this.props.match.params.id;
 
-        axios
-        .put(`http://localhost:8000/api/resources/${id}`, data)
-        .then(res => {
+        fetch(`/api/resources/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                subjectTaught: data.subjectTaught,
+                bookOrWebsite: data.bookOrWebsite,
+                bookOrSubjectTitle: data.bookOrSubjectTitle,
+                reviewAndRating: data.reviewAndRating
+            })
             this.props.history.push("/one-resource/"+id)
+            console.log(data);
         })
         .catch(err => {
             console.log("Error in Editing Resource!")

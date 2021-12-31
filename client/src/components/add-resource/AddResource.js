@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {Button, Form} from 'react-bootstrap';
 import '../add-resource/AddResource.css';
 
@@ -31,17 +30,24 @@ class CreateResources extends Component {
             reviewAndRating: this.state.reviewAndRating
         }
 
-        axios
-        .post('http://localhost:8000/api/resources/', data)
+        fetch("/api/resources", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
         .then(res => {
             this.setState({
                 subjectTaught: '',
                 bookOrWebsite: '',
                 bookOrSubjectTitle: '',
-                reviewAndRating: '' 
+                reviewAndRating: ''
             })
-            this.props.history.push('/resources')
+            this.props.history.push("/community")
         })
+        .then(data => console.log(data))    
         .catch(err => {
             console.log("Error in Creating Resource!")
         })

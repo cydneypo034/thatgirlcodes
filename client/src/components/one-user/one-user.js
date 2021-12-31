@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Card, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
-
 
 class OneUser extends Component {
 
@@ -13,19 +11,19 @@ class OneUser extends Component {
             user: {}
         }
     }
-
     fetchOneUser = () => {
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:8000/api/community/${id}`)
-        .then(res => {
-            console.log("print user" + res.data)
-            this.setState({
-                user: res.data})
-        })
-        .catch(err => {
-            console.log("error in displaying user")
-        })
+        fetch(`/api/community/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ user: data })
+                console.log(data);
+                })
+                .catch(err => {
+                    console.log("error in displaying user")
+                })
     }
+
 
     componentDidMount() {
         this.fetchOneUser();

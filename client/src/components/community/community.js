@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import {Button} from 'react-bootstrap';
 import CommunityCard from './communitycard.js';
 import './community.css';
@@ -18,11 +17,13 @@ class ShowCommunity extends React.Component {
         }
 
         fetchCommunity = () => {
-            axios('http://localhost:8000/api/community')
-            .then(res => {
+            fetch('/api/community')
+            .then(res => res.json())
+            .then(data => {
                 this.setState({
                     isLoaded: true,
-                    community: res.data })
+                    community: data })
+                console.log(data)
             }).catch(error => {
                 console.log("error in displaying community")
             });

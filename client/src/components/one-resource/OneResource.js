@@ -2,7 +2,6 @@ import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import '../one-resource/OneResource.css';
-import axios from 'axios';
 
 class OneResource extends React.Component {
 
@@ -15,15 +14,15 @@ class OneResource extends React.Component {
 
     fetchOneResource = () => {
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:8000/api/resources/${id}`)
-        .then(res => {
-            console.log("print resource" + res.data)
-            this.setState({
-                resource: res.data})
-        })
-        .catch(err => {
-            console.log("error in displaying resource")
-        })
+        fetch(`/api/resources/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ resource: data })
+                console.log(data);
+                })
+                .catch(err => {
+                    console.log("error in displaying resource")
+                })
     }
 
     componentDidMount(){

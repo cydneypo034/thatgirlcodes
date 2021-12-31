@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Button, Form} from 'react-bootstrap';
-import axios from 'axios';
 import '../add-user/add-newuser.css';
 
 class CreateUser extends Component {
@@ -31,17 +30,24 @@ class CreateUser extends Component {
             currentCareer: this.state.currentCareer
         }
 
-        axios
-        .post('http://localhost:8000/api/community/', data)
+        fetch("/api/community", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
         .then(res => {
             this.setState({
                 name: '',
                 age: '',
                 schoolAttended: '',
-                currentCareer: '' 
+                currentCareer: ''
             })
-            this.props.history.push('/community')
+            this.props.history.push("/community")
         })
+        .then(data => console.log(data))
         .catch(err => {
             console.log("Error in Creating User!")
         })

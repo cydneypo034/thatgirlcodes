@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Form, Button} from 'react-bootstrap';
-import axios from 'axios';
 import '../edit-user/edit-user.css';
 
 class EditUser extends Component {
@@ -17,14 +16,16 @@ class EditUser extends Component {
 
     getUserToEdit = () => {
         const id = this.props.match.params.id;
-        axios.get(`http://localhost:8000/api/community/${id}`)
-            .then(res => {
+        fetch(`/api/community/${id}`)
+            .then(res => res.json)
+            .then(data => {
                 this.setState({
-                    name: res.data.name,
-                    age: res.data.age,
-                    schoolAttended: res.data.schoolAttended,
-                    currentCareer: res.data.currentCareer
-                })
+                        name: data.name,
+                        age: data.age,
+                        schoolAttended: data.schoolAttended,
+                        currentCareer: data.currentCareer
+                    })
+                console.log(data)
             })
             .catch(err => {
                 console.log("error getting user to edit")
@@ -53,10 +54,24 @@ class EditUser extends Component {
 
         const id = this.props.match.params.id;
 
-        axios
-        .put(`http://localhost:8000/api/community/${id}`, data)
-        .then(res => {
-            this.props.history.push("/one-user/"+id)
+        fetch(`/api/community/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                name: data.name,
+                age: data.age,
+                schoolAttended: data.schoolAttended,
+                currentCareer: data.currentCareer
+            })
+            this.props.history.push("/one-resource/"+id)
+            console.log(data);
         })
         .catch(err => {
             console.log("Error in Editing User!")
