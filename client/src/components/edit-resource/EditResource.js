@@ -15,8 +15,7 @@ class EditResources extends Component {
     }
 
     getResourceForEdit = () => {
-        const id = this.props.match.params.id;
-        fetch(`/api/resources/${id}`)
+        fetch('/api/resources/' + this.props.match.params.id)
             .then(res => res.json)
             .then(data => {
                 this.setState({

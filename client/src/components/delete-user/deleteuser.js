@@ -13,8 +13,7 @@ class OneUser extends Component {
     }
 
     fetchOneUser = () => {
-        const id = this.props.match.params.id;
-        fetch(`/api/community/${id}`)
+        fetch('/api/community/' + this.props.match.params.id)
             .then(res => res.json())
             .then(data => {
                 this.setState({ user: data })
