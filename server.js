@@ -38,6 +38,22 @@ const resourceRoutes = require('./routes/api/resources.js')
 app.use('/api/community', communityRoutes)
 app.use('/api/resources', resourceRoutes)
 
+/////////////heroku build///////////// place this last!
+
+//__dirname = path.resolve();
+//heroku static folder
+if(process.env.NODE_ENV ==='production'){
+    app.use(express.static(path.join(__dirname, "/client/build")));
+
+    app.get('*',(req, res) => {
+        res.sendFile(path.join(__dirname, 'client' , 'build', 'index.html'));
+        //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    })
+}else {
+    app.get("/", (req, res) => {
+        res.send("API is running..")
+    })
+}
 
 //port//
 const port = process.env.PORT || 8000;
