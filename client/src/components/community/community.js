@@ -22,11 +22,10 @@ class ShowCommunity extends React.Component {
             .then(res => {
                 this.setState({
                     isLoaded: true,
-                    community: res.data
-                }).catch(error => {
-                    console.log("error displaying community")
-                });
-            })
+                    community: res.data })
+            }).catch(error => {
+                console.log("error in displaying community")
+            });
         }
 
     render() {

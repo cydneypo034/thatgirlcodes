@@ -14,7 +14,7 @@ const CommunityCard = (props) => {
             border: "1px solid white"}} className="card">
             <Card.Body>
                 <Card.Title>
-                    <Link to={`/one-community/${community._id}`} 
+                    <Link to={`/one-user/${community._id}`} 
                     style={{color: 'white', textDecoration: 'none'}}>
                         Name: {community.name}</Link>
                     </Card.Title>
