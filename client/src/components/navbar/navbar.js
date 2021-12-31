@@ -13,7 +13,6 @@ export default class NavigateBar extends Component {
                 <Nav>
                 <Nav.Link href="/community" className="nav-link">Community</Nav.Link>
                 <Nav.Link href="/resources" className="nav-link">Resources</Nav.Link>
-                <Nav.Link href="/contact" className="nav-link">Contact</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
                 </Navbar>

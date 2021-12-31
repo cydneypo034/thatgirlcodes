@@ -69,3 +69,78 @@
     position: relative;
     top: 70px;
 }
+
+@media only screen and (min-width: 375px) 
+and (max-width: 812px){
+
+    .home-main-text {
+        text-align: center;
+        font-size: 50px;
+        color: white;
+      }
+    
+    .home-pg-text {
+        text-align: center;
+        color: white;
+        font-size: 15px;
+    }
+
+    .women-laughing-image{
+        width: 100%;
+        height: 390px;
+        padding: 10px;
+        border: 1px solid white;
+      }
+      
+    .woman-laptop-image {
+        width: 100%;
+        height: 390px;
+        padding: 10px;
+        border: 1px solid white;
+      }
+    
+      .over-image-text-1{
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        color: white;
+        background-color: #282828;
+        border: 1px solid black;
+        width: 250px;
+        height: 110px;
+        font-size: 40px;
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
+    .over-image-text-1:hover {
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    .over-image-text-2{
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        color: white;
+        background-color: #282828;
+        border: 1px solid black;
+        width: 250px;
+        height: 110px;
+        font-size: 40px;
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
+    
+    .over-image-text-2:hover {
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    .home-link-choices {
+        text-align: center;
+        position: relative;
+        top: 10px;
+    }
+}
