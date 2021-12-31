@@ -31,6 +31,16 @@ class OneUser extends Component {
         this.fetchOneUser();
     }
 
+    onDeleteUser(id) {
+        axios.delete("http://localhost:8000/api/community/"+id)
+        .then(res=> {
+            this.props.history.push('/community');
+        })
+        .catch(err => {
+            console.log("error deleting user")
+        })
+    }
+
 
     render() {
 
@@ -52,19 +62,15 @@ class OneUser extends Component {
                         <a href="/community" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Community</Button>
                         </a> { ' ' }
-                        <Link to={`/edit-user/${id}`} className='home-resource-button'>
-                        <Button variant="outline-light">Edit This User</Button>
-                        </Link> { ' ' }
-                        <Link to={`/delete-user/${id}`} className="home-resource-button">
-                        <Button variant="outline-light">Delete This User</Button>
-                        </Link>
+                        <Button variant="outline-light" className='home-resource-button' 
+                        onClick={this.onDeleteUser.bind(this, id)} >Delete This User</Button>
                 </Card.Body>
                 </Card>
             </div>
 
         return (
             <div>
-                <h1 className='home-main-text'>Meet Our User</h1>
+                <h1 className='home-main-text'>Are You Sure You Want To Delete?</h1>
 
                 <div className='container'>
                 <div className='card-wrapper'>{OneUser}</div>

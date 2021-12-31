@@ -30,6 +30,16 @@ class OneResource extends React.Component {
         this.fetchOneResource();
     }
 
+    onDeleteResource(id) {
+        axios.delete("http://localhost:8000/api/resources/"+id)
+        .then(res=> {
+            this.props.history.push('/resources');
+        })
+        .catch(err => {
+            console.log("error deleting resource")
+        })
+    }
+
     render() {
 
         const resource = this.state.resource;
@@ -50,19 +60,15 @@ class OneResource extends React.Component {
                         <a href="/resources" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Resource List</Button>
                         </a> { ' ' }
-                        <Link to={`/edit-resources/${id}`} className='home-resource-button'>
-                        <Button variant="outline-light">Edit This Resource</Button>
-                        </Link> { ' ' }
-                        <Link to={`/delete-resource/${id}`} className="home-resource-button">
-                        <Button variant="outline-light" className='home-resource-button'>Delete This Resource</Button>
-                        </Link>
+                        <Button variant="outline-light" className='home-resource-button' 
+                        onClick={this.onDeleteResource.bind(this, id)} >Delete This Resource</Button>
                 </Card.Body>
                 </Card>
             </div>
         
         return (
             <div>
-                <h1 className='home-main-text'>Here's a Resource We Love</h1>
+                <h1 className='home-main-text'>Are You Sure You Want to Delete?</h1>
 
                 <div className='container'>
                 <div className='card-wrapper'>{OneResource}</div>
