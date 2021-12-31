@@ -51,12 +51,13 @@ class OneResource extends React.Component {
                 boxShadow: ".5rem .5rem 3rem rgba(0,0,0,0.2)",
                 border: "1px solid white", textAlign: "center"}}>
                 <Card.Body>
-                <Card.Title style={{color: 'white', fontSize: '30px'}}>
-                    Subject Taught: {resource.subjectTaught}
-                    </Card.Title>
-                <Card.Text style={{color: 'white'}}>Book or Website: {resource.bookOrWebsite}</Card.Text>
-                <Card.Text style={{color: 'white'}}>Book or Subject Title: {resource.bookOrSubjectTitle}</Card.Text>
-                <Card.Text style={{color: 'white'}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
+                <Card.Title style={{color: 'white', fontSize: '40px'}}>
+                Are You Sure You Want to Delete?
+                </Card.Title>
+                <Card.Text style={{color: 'white', fontSize: "20px"}}>Subject Taught: {resource.subjectTaught}</Card.Text>
+                <Card.Text style={{color: 'white', fontSize: "20px"}}>Book or Website: {resource.bookOrWebsite}</Card.Text>
+                <Card.Text style={{color: 'white', fontSize: "20px"}}>Book or Subject Title: {resource.bookOrSubjectTitle}</Card.Text>
+                <Card.Text style={{color: 'white', fontSize: "20px"}}>Reviews and Ratings: {resource.reviewAndRating}</Card.Text>
                         <a href="/resources" className='home-resource-button'>
                         <Button variant="outline-light">Go Back to Resource List</Button>
                         </a> { ' ' }
@@ -68,8 +69,6 @@ class OneResource extends React.Component {
         
         return (
             <div>
-                <h1 className='home-main-text'>Are You Sure You Want to Delete?</h1>
-
                 <div className='container'>
                 <div className='card-wrapper'>{OneResource}</div>
                 </div>

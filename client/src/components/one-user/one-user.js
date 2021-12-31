@@ -44,8 +44,9 @@ class OneUser extends Component {
                 border: "1px solid white", textAlign: "center"}}>
                 <Card.Body>
                 <Card.Title style={{color: 'white', fontSize: '50px'}}>
-                    Name: {user.name}
+                Meet Our User
                     </Card.Title>
+                <Card.Text style={{color: 'white', fontSize: "30px"}}>Name: {user.name}</Card.Text>
                 <Card.Text style={{color: 'white', fontSize: "30px"}}>Age: {user.age}</Card.Text>
                 <Card.Text style={{color: 'white', fontSize: "30px"}}>School Attended: {user.schoolAttended}</Card.Text>
                 <Card.Text style={{color: 'white', fontSize: "30px"}}>Current Career: {user.currentCareer}</Card.Text>
@@ -64,8 +65,6 @@ class OneUser extends Component {
 
         return (
             <div>
-                <h1 className='home-main-text'>Meet Our User</h1>
-
                 <div className='container'>
                 <div className='card-wrapper'>{OneUser}</div>
                 </div>
