@@ -53,7 +53,7 @@ class EditResources extends Component {
 
         const id = this.props.match.params.id;
 
-        fetch('/api/resources' + id, {
+        fetch('/api/resources/' + id, {
             method: 'PUT',
             body: JSON.stringify(UpdatedResource),
             headers: {
@@ -76,7 +76,7 @@ class EditResources extends Component {
     }
     render() {
         return (
-            <div>
+            <div class="container">
                 <h1 className='home-main-text'>Edit Your Favorite Resource</h1>
 
                 <div className="buttons-resources">
