@@ -16,19 +16,19 @@ class EditResources extends Component {
 
     getResourceForEdit = () => {
         fetch('/api/resources/' + this.props.match.params.id)
-            .then(res => res.json)
-            .then(data => {
-                this.setState({
-                    subjectTaught: data.subjectTaught,
-                    bookOrWebsite: data.bookOrWebsite,
-                    bookOrSubjectTitle: data.bookOrSubjectTitle,
-                    reviewAndRating: data.reviewAndRating
+            .then(res => res.json())
+                .then(data => {
+                    this.setState({
+                        subjectTaught: data.subjectTaught,
+                        bookOrWebsite: data.bookOrWebsite,
+                        bookOrSubjectTitle: data.bookOrSubjectTitle,
+                        reviewAndRating: data.reviewAndRating
+                    })
+                    console.log(data);
                 })
-                console.log(data);
-            })
-            .catch(err => {
-                console.log("error getting resource to edit")
-            })
+                .catch(err => {
+                    console.log("error getting resource to edit")
+                })
     }
 
     componentDidMount() {
@@ -44,7 +44,7 @@ class EditResources extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const data = {
+        const UpdatedUser = {
             subjectTaught: this.state.subjectTaught,
             bookOrWebsite: this.state.bookOrWebsite,
             bookOrSubjectTitle: this.state.bookOrSubjectTitle,
@@ -53,9 +53,9 @@ class EditResources extends Component {
 
         const id = this.props.match.params.id;
 
-        fetch(`/api/resources/${id}`, {
+        fetch('/api/resources' + id, {
             method: 'PUT',
-            body: JSON.stringify(data),
+            body: JSON.stringify(UpdatedUser),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -72,9 +72,7 @@ class EditResources extends Component {
             this.props.history.push("/one-resource/"+id)
             console.log(data);
         })
-        .catch(err => {
-            console.log("Error in Editing Resource!")
-        })
+        
     }
     render() {
         return (

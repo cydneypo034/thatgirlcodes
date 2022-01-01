@@ -53,7 +53,7 @@ class EditUser extends Component {
 
         const id = this.props.match.params.id;
 
-        fetch(`/api/community/${id}`, {
+        fetch('/api/community/' + id, {
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
@@ -71,9 +71,6 @@ class EditUser extends Component {
             })
             this.props.history.push("/one-resource/"+id)
             console.log(data);
-        })
-        .catch(err => {
-            console.log("Error in Editing User!")
         })
     }
     

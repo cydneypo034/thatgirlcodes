@@ -30,7 +30,7 @@ class CreateUser extends Component {
             currentCareer: this.state.currentCareer
         }
 
-        fetch("/api/community", {
+        fetch('/api/community', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -48,10 +48,7 @@ class CreateUser extends Component {
             this.props.history.push("/community")
         })
         .then(data => console.log(data))
-        .catch(err => {
-            console.log("Error in Creating User!")
-        })
-    }
+        }
 
     
     render() {

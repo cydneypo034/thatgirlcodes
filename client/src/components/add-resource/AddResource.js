@@ -30,28 +30,26 @@ class CreateResources extends Component {
             reviewAndRating: this.state.reviewAndRating
         }
 
-        fetch("/api/resources", {
+        fetch('/api/resources', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        })
-        .then(res => {
-            this.setState({
-                subjectTaught: '',
-                bookOrWebsite: '',
-                bookOrSubjectTitle: '',
-                reviewAndRating: ''
             })
-            this.props.history.push("/community")
-        })
+            .then(res => {
+                this.setState({
+                    subjectTaught: '',
+                    bookOrWebsite: '',
+                    bookOrSubjectTitle: '',
+                    reviewAndRating: ''
+                })
+                this.props.history.push("/community")
+            })
         .then(data => console.log(data))    
-        .catch(err => {
-            console.log("Error in Creating Resource!")
-        })
-    }
+        
+        }  
     render() {
         return (
             <div className='container'>
