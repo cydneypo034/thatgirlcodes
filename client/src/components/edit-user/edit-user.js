@@ -69,7 +69,7 @@ class EditUser extends Component {
                 schoolAttended: data.schoolAttended,
                 currentCareer: data.currentCareer
             })
-            this.props.history.push('/one-resource/'+id)
+            this.props.history.push('/one-user/'+id)
             console.log(data);
         })
     }

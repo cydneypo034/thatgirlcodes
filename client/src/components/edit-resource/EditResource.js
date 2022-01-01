@@ -77,7 +77,7 @@ class EditResources extends Component {
     render() {
         return (
             <div>
-                <h1 className='home-main-text'>Add Your Favorite Resource</h1>
+                <h1 className='home-main-text'>Edit Your Favorite Resource</h1>
 
                 <div className="buttons-resources">
                 <a href="/resources" className='home-resource-button'>
