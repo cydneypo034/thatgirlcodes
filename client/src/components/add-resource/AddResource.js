@@ -23,7 +23,7 @@ class CreateResources extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const data = {
+        const AddedResource = {
             subjectTaught: this.state.subjectTaught,
             bookOrWebsite: this.state.bookOrWebsite,
             bookOrSubjectTitle: this.state.bookOrSubjectTitle,
@@ -36,7 +36,7 @@ class CreateResources extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(AddedResource)
             })
             .then(res => {
                 this.setState({
@@ -45,7 +45,7 @@ class CreateResources extends Component {
                     bookOrSubjectTitle: '',
                     reviewAndRating: ''
                 })
-                this.props.history.push("/community")
+                this.props.history.push('/resources')
             })
         .then(data => console.log(data))    
         

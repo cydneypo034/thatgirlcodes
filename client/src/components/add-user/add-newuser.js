@@ -23,7 +23,7 @@ class CreateUser extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const data = {
+        const AddedUser = {
             name: this.state.name,
             age: this.state.age,
             schoolAttended: this.state.schoolAttended,
@@ -36,7 +36,7 @@ class CreateUser extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(AddedUser)
         })
         .then(res => {
             this.setState({

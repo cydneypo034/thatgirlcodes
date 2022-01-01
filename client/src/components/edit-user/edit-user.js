@@ -16,7 +16,7 @@ class EditUser extends Component {
 
     getUserToEdit = () => {
         fetch('/api/community/' + this.props.match.params.id)
-            .then(res => res.json)
+            .then(res => res.json())
             .then(data => {
                 this.setState({
                         name: data.name,
@@ -44,7 +44,7 @@ class EditUser extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const data = {
+        const UpdatedUser = {
             name: this.state.name,
             age: this.state.age,
             schoolAttended: this.state.schoolAttended,
@@ -55,7 +55,7 @@ class EditUser extends Component {
 
         fetch('/api/community/' + id, {
             method: 'PUT',
-            body: JSON.stringify(data),
+            body: JSON.stringify(UpdatedUser),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ class EditUser extends Component {
                 schoolAttended: data.schoolAttended,
                 currentCareer: data.currentCareer
             })
-            this.props.history.push("/one-resource/"+id)
+            this.props.history.push('/one-resource/'+id)
             console.log(data);
         })
     }

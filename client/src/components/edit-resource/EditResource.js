@@ -44,7 +44,7 @@ class EditResources extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const UpdatedUser = {
+        const UpdatedResource = {
             subjectTaught: this.state.subjectTaught,
             bookOrWebsite: this.state.bookOrWebsite,
             bookOrSubjectTitle: this.state.bookOrSubjectTitle,
@@ -55,7 +55,7 @@ class EditResources extends Component {
 
         fetch('/api/resources' + id, {
             method: 'PUT',
-            body: JSON.stringify(UpdatedUser),
+            body: JSON.stringify(UpdatedResource),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ class EditResources extends Component {
                 bookOrSubjectTitle: data.bookOrSubjectTitle,
                 reviewAndRating: data.reviewAndRating
             })
-            this.props.history.push("/one-resource/"+id)
+            this.props.history.push('/one-resource/'+id)
             console.log(data);
         })
         
