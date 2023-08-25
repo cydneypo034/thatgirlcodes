@@ -6,13 +6,13 @@ const Users = require('../../models/community.js');
 router.get('/', (req, res) => {
     Users.find()
     .then(users => res.json(users))
-    .catch(err => res.status(404).json({ nousers: 'They are not Available'}));
+    .catch(err => res.status(404).json({ nousers: 'No Users'}));
 });
 
 router.get('/:id', (req, res) => {
     Users.findById(req.params.id)
     .then(users => res.json(users))
-    .catch(err => res.status(404).json({ nousers: 'They are not Available'}));
+    .catch(err => res.status(404).json({ nousers: 'No User'}));
 });
 
 router.post('/', (req, res) => {
