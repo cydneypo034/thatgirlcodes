@@ -20,6 +20,8 @@ export default class ShowHome extends Component {
                     <img src={WomanOnLaptop} alt="black-woman-on-laptop" className='woman-laptop-image' />
                 </div>
             </div>
+            
+               
         )
     }
 }
