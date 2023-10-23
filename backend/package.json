@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "build": "npm i",
     "app": "concurrently \"npm run backend\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
