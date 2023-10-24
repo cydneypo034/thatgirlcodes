@@ -12,7 +12,7 @@ class OneResource extends React.Component {
     }
 
     fetchOneResource = () => {
-        fetch('http://localhost:3000/api/resources/' + this.props.match.params.id)
+        fetch('https://that-girl-codes.onrender.com/api/resources/' + this.props.match.params.id)
             .then(res => res.json())
             .then(data => {
                 this.setState({ resource: data })
@@ -34,7 +34,7 @@ class OneResource extends React.Component {
                 'Content-Type': 'application/json'
             },
         }
-        fetch("/api/resources/"+ id, deletedUser)
+        fetch("https://that-girl-codes.onrender.com/api/resources/"+ id, deletedUser)
         .then(() => {
             this.props.history.push('/resources');
             console.log('removed')

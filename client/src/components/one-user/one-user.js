@@ -13,7 +13,7 @@ class OneUser extends Component {
     }
     fetchOneUser = () => {
         const id = this.props.match.params.id;
-        fetch('http://localhost:3000/api/community/' + id)
+        fetch('https://that-girl-codes.onrender.com/api/community/' + id)
             .then(res => res.json())
             .then(data => {
                 this.setState({ user: data })
