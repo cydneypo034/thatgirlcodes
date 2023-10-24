@@ -17,7 +17,7 @@ class ShowCommunity extends React.Component {
         }
 
         fetchCommunity = () => {
-            fetch('/api/community')
+            fetch('http://localhost:3000/api/community')
             .then(res => res.json())
             .then(data => {
                 this.setState({

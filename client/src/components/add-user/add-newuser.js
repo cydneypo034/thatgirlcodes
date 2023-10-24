@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form} from 'react-bootstrap';
-import '../add-user/add-newuser.css';
+import './add-newuser.css';
 
 class CreateUser extends Component {
     constructor() {
@@ -30,7 +30,7 @@ class CreateUser extends Component {
             currentCareer: this.state.currentCareer
         }
 
-        fetch('/api/community', {
+        fetch('http://localhost:3000/api/community', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

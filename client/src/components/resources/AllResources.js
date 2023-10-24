@@ -17,7 +17,7 @@ class ShowResources extends React.Component {
     }
 
     fetchResources = () => {
-        fetch('/api/resources')
+        fetch('http://localhost:3000/api/resources')
         .then(res => res.json())
             .then(data => {
                 this.setState({

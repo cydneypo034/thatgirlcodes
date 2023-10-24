@@ -13,7 +13,7 @@ class OneUser extends Component {
     }
 
     fetchOneUser = () => {
-        fetch('/api/community/' + this.props.match.params.id)
+        fetch('http://localhost:3000/api/community/' + this.props.match.params.id)
             .then(res => res.json())
             .then(data => {
                 this.setState({ user: data })
@@ -35,7 +35,7 @@ class OneUser extends Component {
                 'Content-Type': 'application/json'
             },
         }
-        fetch("/api/community/"+ id, deletedUser)
+        fetch("http://localhost:3000/api/community/"+ id, deletedUser)
         .then(() => {
             this.props.history.push('/community');
             console.log('removed')

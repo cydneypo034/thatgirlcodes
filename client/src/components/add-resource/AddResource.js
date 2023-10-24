@@ -30,7 +30,7 @@ class CreateResources extends Component {
             reviewAndRating: this.state.reviewAndRating
         }
 
-        fetch('/api/resources', {
+        fetch('http://localhost:3000/api/resources', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

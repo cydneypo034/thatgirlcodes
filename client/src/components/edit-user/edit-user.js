@@ -15,7 +15,7 @@ class EditUser extends Component {
     }
 
     getUserToEdit = () => {
-        fetch('/api/community/' + this.props.match.params.id)
+        fetch('http://localhost:3000/api/community/' + this.props.match.params.id)
             .then(res => res.json())
             .then(data => {
                 this.setState({
@@ -53,7 +53,7 @@ class EditUser extends Component {
 
         const id = this.props.match.params.id;
 
-        fetch('/api/community/' + id, {
+        fetch('http://localhost:3000/api/community/' + id, {
             method: 'PUT',
             body: JSON.stringify(UpdatedUser),
             headers: {

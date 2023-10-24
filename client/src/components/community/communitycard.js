@@ -1,7 +1,7 @@
 import React from "react";
 import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import '../community/community.css';
+import './community.css';
 
 const CommunityCard = (props) => {
     const community = props.community;
