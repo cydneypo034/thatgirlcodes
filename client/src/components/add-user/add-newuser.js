@@ -30,7 +30,7 @@ class CreateUser extends Component {
             currentCareer: this.state.currentCareer
         }
 
-        fetch('https://that-girl-codes.onrender.com/api/community', {
+        fetch('/api/community', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

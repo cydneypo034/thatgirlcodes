@@ -13,7 +13,7 @@ class OneUser extends Component {
     }
 
     fetchOneUser = () => {
-        fetch('https://that-girl-codes.onrender.com/api/community/' + this.props.match.params.id)
+        fetch('/api/community/' + this.props.match.params.id)
             .then(res => res.json())
             .then(data => {
                 this.setState({ user: data })
@@ -35,7 +35,7 @@ class OneUser extends Component {
                 'Content-Type': 'application/json'
             },
         }
-        fetch("https://that-girl-codes.onrender.com/api/community/"+ id, deletedUser)
+        fetch("/api/community/"+ id, deletedUser)
         .then(() => {
             this.props.history.push('/community');
             console.log('removed')

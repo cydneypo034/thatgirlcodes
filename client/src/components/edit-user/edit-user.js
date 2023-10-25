@@ -53,7 +53,7 @@ class EditUser extends Component {
 
         const id = this.props.match.params.id;
 
-        fetch('https://that-girl-codes.onrender.com/api/community/' + id, {
+        fetch('/api/community/' + id, {
             method: 'PUT',
             body: JSON.stringify(UpdatedUser),
             headers: {

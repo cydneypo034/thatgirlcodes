@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import '../add-resource/AddResource.css';
+import { APICall } from '../assets/API/API-call.js'
 
 class CreateResources extends Component {
     constructor() {
@@ -30,7 +31,7 @@ class CreateResources extends Component {
             reviewAndRating: this.state.reviewAndRating
         }
 
-        fetch('https://that-girl-codes.onrender.com/api/resources', {
+        fetch('/api/resources', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
