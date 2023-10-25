@@ -1,1 +1,0 @@
-export const APICall = 'https://that-girl-codes.onrender.com'

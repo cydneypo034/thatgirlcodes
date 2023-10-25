@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import '../add-resource/AddResource.css';
-import { APICall } from '../assets/API/API-call.js'
 
 class CreateResources extends Component {
     constructor() {
