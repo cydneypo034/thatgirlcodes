@@ -17,7 +17,7 @@ class ShowResources extends React.Component {
     }
 
     fetchResources = () => {
-        fetch('/api/resources')
+        fetch('https://that-girl-codes.onrender.com/api/resources')
         .then(res => res.json())
             .then(data => {
                 this.setState({

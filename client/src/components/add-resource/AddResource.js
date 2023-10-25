@@ -30,7 +30,7 @@ class CreateResources extends Component {
             reviewAndRating: this.state.reviewAndRating
         }
 
-        fetch('/api/resources', {
+        fetch('https://that-girl-codes.onrender.com/api/resources', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

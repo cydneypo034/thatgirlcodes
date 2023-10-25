@@ -53,7 +53,7 @@ class EditResources extends Component {
 
         const id = this.props.match.params.id;
 
-        fetch('/api/resources/' + id, {
+        fetch('https://that-girl-codes.onrender.com/api/resources/' + id, {
             method: 'PUT',
             body: JSON.stringify(UpdatedResource),
             headers: {
