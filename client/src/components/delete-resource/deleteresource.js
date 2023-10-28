@@ -12,7 +12,7 @@ class OneResource extends React.Component {
     }
 
     fetchOneResource = () => {
-        fetch('https://that-girl-codes.onrender.com/api/resources' + this.props.match.params.id)
+        fetch('https://that-girl-codes.onrender.com/api/resources/' + this.props.match.params.id)
             .then(res => res.json())
             .then(data => {
                 this.setState({ resource: data })
